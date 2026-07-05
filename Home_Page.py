@@ -44,7 +44,7 @@ def dashboard():
     st.sidebar.header("Dashboard Menu")
 
     #Sidebar Details
-    st.sidebar.page_link ("./Home_Page.py", label="Home Page")
+    #st.sidebar.page_link ("./Home_Page.py", label="Home Page")
     st.sidebar.page_link("pages/Current_Year_Dashboard.py", label="Current Year Dashboard")
     st.sidebar.page_link("pages/Year_On_Year_Dashboard.py", label="Year On Year Dashboard")
     st.sidebar.page_link("pages/Historical_Dashboard.py", label="Historical Dashboard")
