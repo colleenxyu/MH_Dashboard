@@ -19,7 +19,7 @@ if not st.session_state.get("authenticated", False):
 
 
 
-st.title("2026 Dashboard 🍽")
+st.title("Utilities Dashboard 🍽")
 
 st.sidebar.image("White Logo.png")
 
@@ -30,6 +30,7 @@ st.sidebar.page_link("pages/Current_Year_Dashboard.py", label="Current Year Dash
 st.sidebar.page_link ("pages/Year_On_Year_Dashboard.py", label ="Year On Year Dashboard")
 st.sidebar.page_link ("pages/Historical_Dashboard.py", label="Historical Dashboard")
 st.sidebar.page_link ("pages/Utilities_Dashboard.py", label = "Utilities Dashboard")
+st.sidebar.page_link("pages/Dashboard_Analysis.py", label="Dashboard Analysis Page")
 
 st.sidebar.header("Filter By Month:")
 
