@@ -49,6 +49,7 @@ def dashboard():
     st.sidebar.page_link("pages/Year_On_Year_Dashboard.py", label="Year On Year Dashboard")
     st.sidebar.page_link("pages/Historical_Dashboard.py", label="Historical Dashboard")
     st.sidebar.page_link("pages/Utilities_Dashboard.py", label="Utilities Dashboard")
+    st.sidebar.page_link("pages/Dashboard_Analysis.py", label="Dashboard Analysis Page")
 
     st.sidebar.button("Logout", on_click=logout)
 
