@@ -136,7 +136,7 @@ with st.container(border=True):
 
                 Utility_Percent = utilitycostpercent_df ["UtilityPercent26"]
                 CostPercent = utilitycostpercent_df ["CostPercentLevel"]
-                st.metric(label ="Utility As Percentage of Total Cost",value = f"{Utility_Percent}% of Total Cost", delta=f"{CostPercent} for total cost", delta_arrow="off", delta_color="blue")
+                st.metric(label ="Utility As Percentage of Total Revenue",value = f"{Utility_Percent}% of Total Cost", delta=f"{CostPercent} for total cost", delta_arrow="off", delta_color="blue")
 
                 UtilityCostPerOrder = costperorders_df ["CostOrder26"]
                 st.metric(label ="Utility Cost Per Order", value =f"₱{UtilityCostPerOrder} per order")
