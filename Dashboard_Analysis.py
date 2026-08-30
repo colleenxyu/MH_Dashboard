@@ -33,7 +33,7 @@ st.sidebar.page_link ("pages/Utilities_Dashboard.py", label = "Utilities Dashboa
 st.sidebar.page_link("pages/Dashboard_Analysis.py", label="Dashboard Analysis Page")
 
 
-tab1,tab2 = st.tabs(["Current Year Utility Data Analysis", "Year On Year Utility Data Analysis"])
+tab1,tab2, tab3 = st.tabs(["Current Year Utility Data Analysis", "Year On Year Utility Data Analysis", "Current Year Expense Dashboard Analysis"])
 
 with tab1:
     st.subheader("Current Year Utility Data Analysis")
@@ -155,6 +155,155 @@ The months of January and July saw a slight percentage increase (35 and 31% resp
         
         
         """)
+
+with tab2:
+    st.subheader("Year On Year Utility Data Analysis")
+
+    with st.expander("**Metric #1: Total Utility Spend (2024-2026)**", expanded=True):
+            st.markdown(
+                """
+            *	**Total Utility Spend** showed an average increase of **Php 2,627.23** per year.
+            *   Other notable insights point to the start of the year (January) as a month marked by a high utility spend. 
+            *   This is followed by the months of April to May. 
+            *   All three years showed a marked spending increase during these months. 
+
+        """)
+
+    with st.expander("**Metric #2: Total Electricity Spend (2024-2026)**", expanded=True):
+        st.markdown(
+            """
+            *	Total Electricity Spend increased by **Php 773.20** per year.
+            *    Like the total utility spend, the months of April to May were also marked by a spending increase. 
+            *    The month of July also showed a marked spending increase for all three years.
+
+    """)
+
+    with st.expander("**Metric #3: Total Water Bill Spend (2024-2026)**", expanded=True):
+        st.markdown(
+            """
+        *   Total Water Bill Spend increased by **Php 1,854.03** per year
+        *   Besides notable exceptions seen in the year 2025, the common trend shared by all three years was an increase in spend during the early months of the year (January and February) respectively. 
+
+
+    """)
+
+    with st.expander("**Metric #4: Utility Cost as Percentage of Revenue (2024-2026)**", expanded=True):
+        st.markdown(
+            """
+        *  An examination of the utility cost as percentage of total revenue showed a worrying continual elevation in utility spending. 
+        *  **Two** out of the three years showed elevated percentages (10%) that already ate into gross margins, while all three years averaged at least five months where utility cost percentage was above the acceptable rate. 
+        *  Thankfully, the latest data shows the least number of months **(3)** where utility cost percentage reached an elevated rate. 
+
+    """)
+
+    with st.expander("**Metric #5: Effective Rate (2024-2026)**", expanded=True):
+        st.markdown(
+            """
+            * The electricity rate data for the period specified showed an average increase of **Php 2.44 per kwh** for the years 2024-2026
+            * The water rate data for the period specified showed an average increase of **Php 47.55 per cubic meter** for the years 2024-2026
+    """)
+
+    with st.expander("**Metric #6: Consumption Volume (2024-2026)**", expanded=True):
+        st.markdown(
+            """
+            * The consumption volume data for the specified period showed a visible **decrease** for both water and electricity consumption.
+            * Average Electricity Consumption: (-251.33)
+            * Average Water Consumption:(-11.33)
+    """)
+
+    with st.expander("**Metric #7: Variance Data (2024-2026)**", expanded=True):
+        st.markdown(
+            """
+            * **Electricity Variance Data** unearthed the following insights: 
+                1.	Cost increases in the year 2024 were driven primarily by **rate hikes**. 
+                2.	The year 2025 saw positive numbers which pointed to low variance for both price and quantity. 
+                3.	For 2026, **both price and quantity variance** served as equal factors which led to electricity cost increases. 
+            * **Water Variance Data** unearthed the following insights:
+                1.	2025 was primarily driven by an increase in **consumption**, while both succeeding and preceding years saw no questionable variance jumps. 
+    """)
+
+    with st.expander("**Metric #8:Revenue vs Total Orders, Utility Cost Per Order and Average Order Value**", expanded=True):
+        st.markdown(
+            """
+            *   Revenue data for the period specified showed an average increase of **Php 30,632.11** per year. 
+            *   **2026** recorded the highest total revenue for the months of January-July.
+            *   **2024** recorded the lowest total revenue for the months of January-July. 
+            *   The highest (or one of the highest revenues recorded) for each year all coincide with similar months: **March, May and July**.
+            *	2026 is the only year where the breakeven point was reached **twice**. 
+            *	The lowest recorded revenue month is **February 2025** 
+            *	The highest recorded revenue month is **May 2026**. 
+            *	Total order data also showed an increase of **13.90**
+            ---
+            **Utility Cost Per Order showed a decrease of -82.55, however, so did Average Order Value, which went down to -1018.45 per year covered.** 
+            #### KEY TAKEAWAYS
+            *   Strong Operational Efficiency: Scaling total order volume allowed you to spread fixed or semi-variable utility costs across more transactions, driving down your utility cost per order.
+            *	Changing Customer Purchasing Habits: A declining Average Order Value (AOV) means customers are buying fewer items per order, switching to cheaper options, or benefiting from larger discounts.
+            *	Overall Growth: Increasing total revenue alongside rising order volume proves that the gains from sheer order volume are outpacing the revenue drop from smaller order sizes.
+            
+            ####  STRATEGIC RECOMMENDATIONS
+            *   Protect Your Margins from Delivery/Labor Costs: Lower AOV means higher operational strain per dollar earned. Ensure that packing, transaction fees, and labor costs per order aren't eating into the savings gained from reduced utility costs.
+            *	Focus on Upselling & Cross-Selling: Implement subtle basket-building strategies (e.g., minimum order thresholds for perks, bundled items, or targeted add-ons at checkout) to nudge AOV back up.
+            *   Analyze Product Mix: Check if customers are shifting toward lower-margin items or if aggressive discounting over the three-year period systematically lowered the spend per ticket.
+
+
+    """)
+
+with tab3:
+    st.subheader("Current Year Expense Dashboard Analysis")
+
+
+    with st.expander("**Table #1: Operating Income and Operating Margin**", expanded=True):
+        st.markdown(
+            """
+            *	Table 1 displays the final operating income from the months of January- July 2026. 
+            *	Operating income is defined as the efficiency and sustainability level of the business to generate money from products before interests and taxes. 
+            *	Based on the computation, the months surveyed showed a mostly ideal and positive margin percentage. 
+            *	May 2026 is listed as the month with the highest operating margin, with July at a close second.
+            *	April 2026 is listed as the month with the lowest operating income and margin, notably displaying negative results for both. 
+
+    """)
+
+    with st.expander("**Table #2: Cost Spend Tables**", expanded=True):
+        st.markdown(
+            """
+            *   Table 2 looks at the two main branches of expenses which are used to calculate profit, cost of goods and operating expenses. 
+	        *   The table displays the total amounts spent for the listed months, and the percentage each amount is of the total revenue earned during that period.	        
+	        *   The COG percentage for all months are at alarming levels, while the OPEX percentages display no anomalies.
+	        *   The next few charts might be of help in order to diagnose the cost surge seen in the COG category.             
+    """)
+
+    with st.expander("**Table #3: Cost of Goods Table**", expanded=True):
+        st.markdown(
+            """
+            *   Table 3 breaks down the specific expenses included in the cost of goods computation. 
+            *	These include petty cash marketing, regular salaries, extra helper salaries, chicken leg quarter, cooking gas, cooking oil, dry goods, fish fillet, groceries and plastic goods for packaging.
+            *	Petty cash marketing and salaries compose the highest percentage of the expense, exceeding the ideal 40-50% of COGs. 
+            *	Possible issues include overstaffing, excessive overtime and inefficient procedures. 
+
+            
+    """)
+
+    with st.expander("**Table #4: OPEX Chart Table**", expanded=True):
+        st.markdown(
+            """
+            *   Table 4 breaks down the specific operating expenses included in the operating expense computation for the months of January-July 2026
+            *   Electricity comprises the highest expense for all months, followed by the water bill. 
+            *	There were no anomalies spotted in the numbers listed. 
+
+    """)
+
+    with st.expander("**Takeaways**", expanded=True):
+        st.markdown(
+            """
+            *	A more detailed examination of the expenses which comprised the profit computation yielded the following insights:
+            *	Petty cash marketing comprises the largest cost of good among all listed costs. 
+            *	Unlike the other expenses listed this is all paid in cash and is a likely explanation for possible cashflow issues that arose in succeeding months. 
+            *	There is a need to establish a possible credit line for future expenses that will lessen the need to pay cash down for future costs and allow for better budgeting opportunities. 
+            *	Examining the numbers further also gave more insight into just how bad the April 2026 cost increases affected the health of the business. 
+            *	Hurdles encountered during preparation of the report included analyzing where certain expenses would be classified given the context of the business’ work. These are still concerns after the report has been completed, as they affect the computations greatly. 
+
+    """)
+
 
 
 st.sidebar.button("Logout", on_click=logout)

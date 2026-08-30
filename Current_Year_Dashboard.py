@@ -42,152 +42,183 @@ ordertotal_df = ordertotal_df[ordertotal_df["Month"] == selected_month].iloc[0]
 newcustomers_df = newcustomers_df[newcustomers_df["Month"] == selected_month].iloc[0]
 repeatcustomerrate_df = repeatcustomerrate_df[repeatcustomerrate_df["Month"] == selected_month].iloc[0]
 
-with st.container(border=True):
-    col1, col2, col3, col4, col5 = st.columns(5)
 
-    Total_Revenue = revenue_df["Total_Revenue"]
-    Percentage = revenue_df["Percentage"]
-    col1.metric(label="Total Revenue:", value=f"₱{Total_Revenue}", delta=f"{Percentage} vs. previous month")
 
-    Total_Revenue = retargeting_df["Total_Revenue"]
-    Percent = retargeting_df["Percent"]
+tab1,tab2 = st.tabs(["Main Dashboard", "Expense Dashboard"])
 
-    col2.metric(label="Revenue vs Target", value=f"{Percent}", delta="off breakeven point")
+with tab1:
+    st.subheader("General Dashboard")
+    with st.container(border=True):
+        col1, col2, col3, col4, col5 = st.columns(5)
 
-    Total_Orders = ordertotal_df["Total_Orders"]
-    Amount_Quantity = ordertotal_df["Amount_Quantity"]
-    col3.metric(label="Total Orders", value=f"{Total_Orders}", delta=f"{Amount_Quantity} vs. previous month",
-                delta_arrow="off", delta_color="off")
+        Total_Revenue = revenue_df["Total_Revenue"]
+        Percentage = revenue_df["Percentage"]
+        col1.metric(label="Total Revenue:", value=f"₱{Total_Revenue}", delta=f"{Percentage} vs. previous month")
 
-    New_Customers = newcustomers_df["New_Customers"]
-    Amount = newcustomers_df["Amount"]
-    col4.metric(label="New Customers", value=f"{New_Customers}", delta=f"{Amount} vs. previous month",
-                delta_arrow="off", delta_color="off")
+        Total_Revenue = retargeting_df["Total_Revenue"]
+        Percent = retargeting_df["Percent"]
 
-    RCR = repeatcustomerrate_df["RCR"]
-    Growth = repeatcustomerrate_df["Growth"]
-    col5.metric(label="Repeat Customer Rate", value=f"{RCR}%", delta=f"{Growth} vs. previous month", delta_arrow="off",
-                delta_color="off")
+        col2.metric(label="Revenue vs Target", value=f"{Percent}", delta="off breakeven point")
 
-col1, col2 = st.columns(2)
-with col1:
-    st.subheader("2026 Revenue Trend")
-    revenueinfo_df = pd.read_csv("Revenue_Data.csv")
+        Total_Orders = ordertotal_df["Total_Orders"]
+        Amount_Quantity = ordertotal_df["Amount_Quantity"]
+        col3.metric(label="Total Orders", value=f"{Total_Orders}", delta=f"{Amount_Quantity} vs. previous month",
+                    delta_arrow="off", delta_color="off")
 
-    fig = px.line(
-        revenueinfo_df,
-        x="Month",
-        y="Revenue",
-        markers=True
-    )
+        New_Customers = newcustomers_df["New_Customers"]
+        Amount = newcustomers_df["Amount"]
+        col4.metric(label="New Customers", value=f"{New_Customers}", delta=f"{Amount} vs. previous month",
+                    delta_arrow="off", delta_color="off")
 
-    fig.update_layout(
-        yaxis_title="Revenue",
-        xaxis_title="Month",
-        height=400
-    )
+        RCR = repeatcustomerrate_df["RCR"]
+        Growth = repeatcustomerrate_df["Growth"]
+        col5.metric(label="Repeat Customer Rate", value=f"{RCR}%", delta=f"{Growth} vs. previous month", delta_arrow="off",
+                    delta_color="off")
 
-    fig.update_traces(line_color="#c71b08")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.subheader("2026 Revenue Trend")
+        revenueinfo_df = pd.read_csv("Revenue_Data.csv")
 
-    st.plotly_chart(fig)
+        fig = px.line(
+            revenueinfo_df,
+            x="Month",
+            y="Revenue",
+            markers=True
+        )
 
-df = pd.read_csv("New_vs_Returning_Customers.csv")
-selected_month = st.sidebar.selectbox("Select Month", df["Month"].unique(), key="new_vs_old_customers")
+        fig.update_layout(
+            yaxis_title="Revenue",
+            xaxis_title="Month",
+            height=400
+        )
 
-filtered_df = df[df["Month"] == selected_month].iloc[0]
+        fig.update_traces(line_color="#c71b08")
 
-with col2:
-    st.subheader("Customer Breakdown")
-    pie_data = pd.DataFrame({
-        "Type": ["New_Customers", "Returning_Customers"],
-        "Count": [
-            filtered_df["New_Customers"],
-            filtered_df["Returning_Customers"]
-        ]
-    })
+        st.plotly_chart(fig)
 
-    # 👇 build chart from filtered data (THIS is what makes it dynamic)
-    fig = px.pie(
-        pie_data,
-        names="Type",
-        values="Count",
-        title=f"New Vs. Returning Customers",
-        hole=0.4,
-        color_discrete_sequence=["#047d28", "#ccc60e"]
-    )
+    df = pd.read_csv("New_vs_Returning_Customers.csv")
+    selected_month = st.sidebar.selectbox("Select Month", df["Month"].unique(), key="new_vs_old_customers")
 
-    st.plotly_chart(fig, width="stretch")
+    filtered_df = df[df["Month"] == selected_month].iloc[0]
 
-col1, col2 = st.columns(2)
+    with col2:
+        st.subheader("Customer Breakdown")
+        pie_data = pd.DataFrame({
+            "Type": ["New_Customers", "Returning_Customers"],
+            "Count": [
+                filtered_df["New_Customers"],
+                filtered_df["Returning_Customers"]
+            ]
+        })
 
-with col1:
-    st.subheader("Gross vs.Net Profit")
-    df = pd.read_csv("Gross_Net_Profit.csv")
+        # 👇 build chart from filtered data (THIS is what makes it dynamic)
+        fig = px.pie(
+            pie_data,
+            names="Type",
+            values="Count",
+            title=f"New Vs. Returning Customers",
+            hole=0.4,
+            color_discrete_sequence=["#047d28", "#ccc60e"]
+        )
 
-    selected_month = st.sidebar.selectbox(
-        "Select Month",
-        df["Month"].unique(),
-        key="month_filter"
-    )
+        st.plotly_chart(fig, width="stretch")
 
-    # Filter data
-    filtered_df = df[df["Month"] == selected_month]
+    col1, col2 = st.columns(2)
 
-    # Convert to "long format" for grouped bar chart
-    df_melted = filtered_df.melt(
-        id_vars=["Month"],
-        value_vars=["Gross_Profit", "Net_Profit"],
-        var_name="Profit_Type",
-        value_name="Amount"
-    )
+    with col1:
+        st.subheader("Gross vs.Net Profit")
+        df = pd.read_csv("2026GrossvsNet.csv")
 
-    # Bar chart
-    fig = px.bar(
-        df_melted,
-        x="Profit_Type",
-        y="Amount",
-        color="Profit_Type",
-        text="Amount",
-        color_discrete_map={
-            "Revenue": "#c71b08",
-            "Cost": "#080707",
-            "Profit": "#ccc60e"
-        }
-    )
+        selected_month = st.sidebar.selectbox(
+            "Select Month",
+            df["Month"].unique(),
+            key="month_filter"
+        )
 
-    st.plotly_chart(fig, width="stretch")
+        # Filter data
+        filtered_df = df[df["Month"] == selected_month]
 
-with col2:
-    df = pd.read_csv("Customer_By_Type_File.csv")
+        # Convert to "long format" for grouped bar chart
+        df_melted = filtered_df.melt(
+            id_vars=["Month"],
+            value_vars=["Gross_Profit26", "Net_Profit26"],
+            var_name="Profit_Type",
+            value_name="Amount"
+        )
 
-    # Sidebar filter
-    selected_month = st.sidebar.selectbox("Select Month", df["Month"].unique(), key="customer_type_filter")
+        # Bar chart
+        fig = px.bar(
+            df_melted,
+            x="Profit_Type",
+            y="Amount",
+            color="Profit_Type",
+            text="Amount",
+            color_discrete_map={
+                "Revenue": "#c71b08",
+                "Cost": "#080707",
+                "Profit": "#ccc60e"
+            }
+        )
 
-    # Filter data
-    filtered_df = df[df["Month"] == selected_month]
+        st.plotly_chart(fig, width="stretch")
 
-    # Convert wide → long format
-    pie_df = filtered_df.melt(
-        id_vars="Month",
-        value_vars=["Corporate", "Catering", "Individual"],
-        var_name="Type",
-        value_name="Count"
-    )
+    with col2:
+        df = pd.read_csv("Customer_By_Type_File.csv")
 
-    # Donut chart
-    fig = px.pie(
-        pie_df,
-        names="Type",
-        values="Count",
-        title=f"Customers by Type",
-        hole=0.5,
-        color_discrete_sequence=["#c71b08", "#047d28", "#ccc60e"]
-    )
+        # Sidebar filter
+        selected_month = st.sidebar.selectbox("Select Month", df["Month"].unique(), key="customer_type_filter")
 
-    # Display in Streamlit
-    st.plotly_chart(fig, width="stretch")
+        # Filter data
+        filtered_df = df[df["Month"] == selected_month]
 
-    st.sidebar.button("Logout", on_click=logout)
+        # Convert wide → long format
+        pie_df = filtered_df.melt(
+            id_vars="Month",
+            value_vars=["Corporate", "Catering", "Individual"],
+            var_name="Type",
+            value_name="Count"
+        )
+
+        # Donut chart
+        fig = px.pie(
+            pie_df,
+            names="Type",
+            values="Count",
+            title=f"Customers by Type",
+            hole=0.5,
+            color_discrete_sequence=["#c71b08", "#047d28", "#ccc60e"]
+        )
+
+        # Display in Streamlit
+        st.plotly_chart(fig, width="stretch")
+
+        st.sidebar.button("Logout", on_click=logout)
+
+with tab2:
+    st.subheader("Expense Dashboard")
+
+    with st.expander("Table #1: Operating Income and Operation Margin"):
+            df = pd.read_csv ("26OpIncomeandMargin.csv")
+            st.subheader("Operating Income and Operating Margin Chart")
+            st.dataframe(df)
+
+    with st.expander("Table #2: Cost Spend Table"):
+            df = pd.read_csv("26COGandOPEXChart.csv")
+            st.subheader("Total Spend and Percentage of Breakdown Spend Per Month [Jan-July 2026]")
+            st.dataframe(df)
+
+
+    with st.expander("Table #3: COG Table"):
+            df = pd.read_csv ("26COGChart.csv")
+            st.subheader("Cost of Goods Spend Per Month (Jan- July 2026)")
+            st.dataframe(df)
+
+
+    with st.expander("Table #4: OPEX Table"):
+            df = pd.read_csv ("26OPEXChart.csv")
+            st.subheader("Operational Expense Spend Per Month (Jan- July 2026)")
+            st.dataframe(df)
 
 
 
