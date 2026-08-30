@@ -2,6 +2,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 import os
+import io
 
 st.set_page_config(page_title="Year On Year Dashboard", page_icon="🍽", layout="wide")
 
@@ -95,13 +96,34 @@ with tab1:
 
     st.subheader("Gross vs.Net Profit Comparison (2025 vs 2026)")
 
-    df = pd.read_csv("NetGrossComparison.csv")
-    df.columns = df.columns.str.strip()
+    df = pd.read_csv("GrossvsNetComparison2526.csv")
 
-    st.dataframe(df.style.format({
-        "GrossProfit": "₱{:,.2f}",
-        "NetProfit": "₱{:,.2f}"
-    }))
+    # Unpivot the DataFrame from wide to long format
+    df_long = df.melt(
+        id_vars=["Month"],
+        value_vars=["Gross_Profit25", "Net_Profit25", "Gross_Profit26", "Net_Profit26"],
+        var_name="Metric",
+        value_name="Amount"
+    )
+
+    # Now 'Metric' exists as a column in df_long!
+    fig = px.bar(
+        df_long,
+        x="Month",
+        y="Amount",
+        color="Metric",
+        barmode="group",
+        title="Year-over-Year Gross vs Net Profit Comparison",
+        text_auto="$,.0f"
+    )
+
+    fig.update_layout(template="plotly_white")
+    st.plotly_chart(fig)
+
+    df = pd.read_csv ("2026GrossvsNet.csv")
+    st.dataframe(df)
+
+
 
 with tab2:
     st.subheader("Utility Dashboard")
@@ -179,6 +201,7 @@ with tab2:
                 avgvalue26 = utilityorderdata2426_df ["AOV26"]
                 st.metric(label="Average Order Value", value=f"₱ {avgvalue25} vs ₱ {avgvalue26}",
                           delta_color="violet", delta="2025 vs 2026", delta_arrow="off")
+
 
 
 

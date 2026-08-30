@@ -33,7 +33,7 @@ st.sidebar.page_link ("pages/Utilities_Dashboard.py", label = "Utilities Dashboa
 st.sidebar.page_link("pages/Dashboard_Analysis.py", label="Dashboard Analysis Page")
 
 
-tab1,tab2 = st.tabs(["Current Year Utility Data Analysis", "Year On Year Utility Data Analysis"])
+tab1,tab2, tab3 = st.tabs(["Current Year Utility Data Analysis", "Year On Year Utility Data Analysis", "Current Year Expense Dashboard Analysis"])
 
 with tab1:
     st.subheader("Current Year Utility Data Analysis")
@@ -247,6 +247,64 @@ with tab2:
 
 
     """)
+
+with tab3:
+    st.subheader("Current Year Expense Dashboard Analysis")
+
+
+    with st.expander("**Table #1: Operating Income and Operating Margin**", expanded=True):
+        st.markdown(
+            """
+            *	Table 1 displays the final operating income from the months of January- July 2026. 
+            *	Operating income is defined as the efficiency and sustainability level of the business to generate money from products before interests and taxes. 
+            *	Based on the computation, the months surveyed showed a mostly ideal and positive margin percentage. 
+            *	May 2026 is listed as the month with the highest operating margin, with July at a close second.
+            *	April 2026 is listed as the month with the lowest operating income and margin, notably displaying negative results for both. 
+
+    """)
+
+    with st.expander("**Table #2: Cost Spend Tables**", expanded=True):
+        st.markdown(
+            """
+            *   Table 2 looks at the two main branches of expenses which are used to calculate profit, cost of goods and operating expenses. 
+	        *   The table displays the total amounts spent for the listed months, and the percentage each amount is of the total revenue earned during that period.	        
+	        *   The COG percentage for all months are at alarming levels, while the OPEX percentages display no anomalies.
+	        *   The next few charts might be of help in order to diagnose the cost surge seen in the COG category.             
+    """)
+
+    with st.expander("**Table #3: Cost of Goods Table**", expanded=True):
+        st.markdown(
+            """
+            *   Table 3 breaks down the specific expenses included in the cost of goods computation. 
+            *	These include petty cash marketing, regular salaries, extra helper salaries, chicken leg quarter, cooking gas, cooking oil, dry goods, fish fillet, groceries and plastic goods for packaging.
+            *	Petty cash marketing and salaries compose the highest percentage of the expense, exceeding the ideal 40-50% of COGs. 
+            *	Possible issues include overstaffing, excessive overtime and inefficient procedures. 
+
+            
+    """)
+
+    with st.expander("**Table #4: OPEX Chart Table**", expanded=True):
+        st.markdown(
+            """
+            *   Table 4 breaks down the specific operating expenses included in the operating expense computation for the months of January-July 2026
+            *   Electricity comprises the highest expense for all months, followed by the water bill. 
+            *	There were no anomalies spotted in the numbers listed. 
+
+    """)
+
+    with st.expander("**Takeaways**", expanded=True):
+        st.markdown(
+            """
+            *	A more detailed examination of the expenses which comprised the profit computation yielded the following insights:
+            *	Petty cash marketing comprises the largest cost of good among all listed costs. 
+            *	Unlike the other expenses listed this is all paid in cash and is a likely explanation for possible cashflow issues that arose in succeeding months. 
+            *	There is a need to establish a possible credit line for future expenses that will lessen the need to pay cash down for future costs and allow for better budgeting opportunities. 
+            *	Examining the numbers further also gave more insight into just how bad the April 2026 cost increases affected the health of the business. 
+            *	Hurdles encountered during preparation of the report included analyzing where certain expenses would be classified given the context of the business’ work. These are still concerns after the report has been completed, as they affect the computations greatly. 
+
+    """)
+
+
 
 st.sidebar.button("Logout", on_click=logout)
 
