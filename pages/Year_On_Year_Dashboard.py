@@ -120,7 +120,7 @@ with tab1:
     fig.update_layout(template="plotly_white")
     st.plotly_chart(fig)
 
-    df = pd.read_csv ("2026GrossvsNet.csv")
+    df = pd.read_csv ("GrossvsNetComparison2526.csv")
     st.dataframe(df)
 
 

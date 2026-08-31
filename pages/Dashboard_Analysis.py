@@ -33,7 +33,7 @@ st.sidebar.page_link ("pages/Utilities_Dashboard.py", label = "Utilities Dashboa
 st.sidebar.page_link("pages/Dashboard_Analysis.py", label="Dashboard Analysis Page")
 
 
-tab1,tab2, tab3 = st.tabs(["Current Year Utility Data Analysis", "Year On Year Utility Data Analysis", "Current Year Expense Dashboard Analysis"])
+tab1,tab2, tab3, tab4 = st.tabs(["Current Year Utility Data Analysis", "Year On Year Utility Data Analysis", "Current Year Expense Dashboard Analysis", "Year On Year Profit Analysis"])
 
 with tab1:
     st.subheader("Current Year Utility Data Analysis")
@@ -255,30 +255,37 @@ with tab3:
     with st.expander("**Table #1: Operating Income and Operating Margin**", expanded=True):
         st.markdown(
             """
-            *	Table 1 displays the final operating income from the months of January- July 2026. 
-            *	Operating income is defined as the efficiency and sustainability level of the business to generate money from products before interests and taxes. 
-            *	Based on the computation, the months surveyed showed a mostly ideal and positive margin percentage. 
-            *	May 2026 is listed as the month with the highest operating margin, with July at a close second.
-            *	April 2026 is listed as the month with the lowest operating income and margin, notably displaying negative results for both. 
+        * Table 1 displays the final operating income from the months of January- July 2026. 
+        
+        * Operating income is defined as the efficiency and sustainability level of the business to generate money from products before interests and taxes. 
+        
+        * Based on the computation, the months surveyed showed a mostly ideal and positive margin percentage. 
+        
+        * May 2026 is listed as the month with the highest operating margin, with July at a close second.
+        
+        * April 2026 is listed as the month with the lowest operating income and margin, notably displaying negative results for both. 
 
     """)
 
     with st.expander("**Table #2: Cost Spend Tables**", expanded=True):
         st.markdown(
-            """
-            *   Table 2 looks at the two main branches of expenses which are used to calculate profit, cost of goods and operating expenses. 
-	        *   The table displays the total amounts spent for the listed months, and the percentage each amount is of the total revenue earned during that period.	        
-	        *   The COG percentage for all months are at alarming levels, while the OPEX percentages display no anomalies.
-	        *   The next few charts might be of help in order to diagnose the cost surge seen in the COG category.             
+        """
+        * Table 2 looks at the two main branches of expenses which are used to calculate profit, cost of goods and operating expenses.
+        The table displays the total amounts spent for the listed months, and the percentage each amount is of the total revenue earned during that period.	 
+        The COG percentage for all months are at alarming levels, while the OPEX percentages display no anomalies.
+	    The next few charts might be of help in order to diagnose the cost surge seen in the COG category.             
     """)
 
     with st.expander("**Table #3: Cost of Goods Table**", expanded=True):
         st.markdown(
             """
-            *   Table 3 breaks down the specific expenses included in the cost of goods computation. 
-            *	These include petty cash marketing, regular salaries, extra helper salaries, chicken leg quarter, cooking gas, cooking oil, dry goods, fish fillet, groceries and plastic goods for packaging.
-            *	Petty cash marketing and salaries compose the highest percentage of the expense, exceeding the ideal 40-50% of COGs. 
-            *	Possible issues include overstaffing, excessive overtime and inefficient procedures. 
+        * Table 3 breaks down the specific expenses included in the cost of goods computation. 
+        
+        * These include petty cash marketing, regular salaries, extra helper salaries, chicken leg quarter, cooking gas, cooking oil, dry goods, fish fillet, groceries and plastic goods for packaging.
+        
+        * Petty cash marketing and salaries compose the highest percentage of the expense, exceeding the ideal 40-50% of COGs. 
+        
+        * Possible issues include overstaffing, excessive overtime and inefficient procedures. 
 
             
     """)
@@ -286,23 +293,90 @@ with tab3:
     with st.expander("**Table #4: OPEX Chart Table**", expanded=True):
         st.markdown(
             """
-            *   Table 4 breaks down the specific operating expenses included in the operating expense computation for the months of January-July 2026
-            *   Electricity comprises the highest expense for all months, followed by the water bill. 
-            *	There were no anomalies spotted in the numbers listed. 
+        * Table 4 breaks down the specific operating expenses included in the operating expense computation for the months of January-July 2026
+        
+        * Electricity comprises the highest expense for all months, followed by the water bill. 
+        
+        * There were no anomalies spotted in the numbers listed. 
 
     """)
 
     with st.expander("**Takeaways**", expanded=True):
         st.markdown(
             """
-            *	A more detailed examination of the expenses which comprised the profit computation yielded the following insights:
-            *	Petty cash marketing comprises the largest cost of good among all listed costs. 
-            *	Unlike the other expenses listed this is all paid in cash and is a likely explanation for possible cashflow issues that arose in succeeding months. 
-            *	There is a need to establish a possible credit line for future expenses that will lessen the need to pay cash down for future costs and allow for better budgeting opportunities. 
-            *	Examining the numbers further also gave more insight into just how bad the April 2026 cost increases affected the health of the business. 
-            *	Hurdles encountered during preparation of the report included analyzing where certain expenses would be classified given the context of the business’ work. These are still concerns after the report has been completed, as they affect the computations greatly. 
+        * A more detailed examination of the expenses which comprised the profit computation yielded the following insights:
+        
+        * Petty cash marketing comprises the largest cost of good among all listed costs. 
+        
+        * Unlike the other expenses listed this is all paid in cash and is a likely explanation for possible cashflow issues that arose in succeeding months. 
+        
+        * There is a need to establish a possible credit line for future expenses that will lessen the need to pay cash down for future costs and allow for better budgeting opportunities. 
+        
+        * Examining the numbers further also gave more insight into just how bad the April 2026 cost increases affected the health of the business. 
+        
+        * Hurdles encountered during preparation of the report included analyzing where certain expenses would be classified given the context of the business’ work. These are still concerns after the report has been completed, as they affect the computations greatly. 
 
     """)
+
+with tab4:
+    st.subheader("Year On Year Profit Analysis")
+
+    with st.expander("**Gross Profit Takeaways**", expanded=True):
+        st.markdown(
+            """
+        * A year-on-year comparison shows marked improvements in all months, except April 2026.	
+          However, three out of the seven months displayed a decrease in gross profit margin compared to 2025.	
+	      These months were January, March and April of 2026.	
+	      Despite a marked improvement in gross profit, the gross profit margin percentages tell the real story.	
+	      All figures are below the 50% threshold, meaning that raw ingredients consume half of sales and make it impossible to break even.		
+	      The closest month that reached the 50% was May, which is also the month which reached the breakeven revenue of 810,000.00.	
+
+    """)
+
+    with st.expander("**Net Profit Takeaways**", expanded=True):
+      st.markdown(
+            """
+        * A year-on-year comparison shows marked improvements in all months, except April.		
+          The same cannot be said for net profit margins, which went down in 2026 for the following months: January, March and April 2026.	
+	      Despite these comparisons pointing to decreases, the percentage values of net profit margin in 2026 all well within the high to ideal net profit margin percentage.		
+	      Again, April 2026 is the exception in this regard, as seen in its negative net profit margin of -4.94%.	       
+    """)
+
+    with st.expander("**Insight #1: Decrease in Gross Profit Margin**", expanded=True):
+        st.markdown(
+            """
+        • Examination of the data showed a marked decrease in gross profit margins year-on-year
+        
+        • This is dangerous given that even if sales showed an increase, this would continue to erode net profits
+        
+        • Some possible causes of gross profit margin erosion include: ingredient and packaging cost increases, a shift in sales mix (ordering more low margin food vs high margin), inventory waste, spoilage or portion deviation, heavy discounting or promos, and an increase in third party or packaging overhead
+        
+        • Action points for this include:
+        
+          -	Examining menu layout and adding more high margin food
+          
+          -	Renegotiating rates with suppliers and/or adjusting menu prices
+          
+          -	Auditing portion sizes
+
+
+    """)
+
+    with st.expander("**Insight #2: Negative gross profit margin but good net profit margin**", expanded=True):
+        st.markdown(
+            """
+        • Examination of the data presented here showed that despite negative gross profit margin percentages, net profit percentages still fell under ideal or healthy values
+        
+        • This could be due to dangerously high raw materials costs but low overhead costs
+        
+        • Interestingly, the business falls under common business models which fit this: owner operated/high unpaid labor, ghost/cloud kitchens, caterings, or subsidized/low rent spaces 
+        
+        • This model is not sustainable in the long run as it carries risks which are harmful to the business, namely an inability to scale, a vulnerability to ingredient inflation and burnout. 
+        
+        • Some action points which may aid in solving this issue include protecting net margin while fixing cost of goods (aiming for an ideal 30-35% ingredient cost, the business currently is at a 40% raw material cost), and normalizing labor for true valuation (including the owner’s salary under operating expenses in order to gain a more accurate net value).
+        
+    """)
+
 
 
 
