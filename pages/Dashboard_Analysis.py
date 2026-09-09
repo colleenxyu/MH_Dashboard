@@ -33,7 +33,7 @@ st.sidebar.page_link ("pages/Utilities_Dashboard.py", label = "Utilities Dashboa
 st.sidebar.page_link("pages/Dashboard_Analysis.py", label="Dashboard Analysis Page")
 
 
-tab1,tab2, tab3, tab4 = st.tabs(["Current Year Utility Data Analysis", "Year On Year Utility Data Analysis", "Current Year Expense Dashboard Analysis", "Year On Year Profit Analysis"])
+tab1,tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["Current Year Utility Data Analysis", "Year On Year Utility Data Analysis", "Current Year Expense Dashboard Analysis", "Year On Year Profit Analysis", "Current Year Margins Analysis", "Year On Year Margins Analysis", "Margins Analysis Insight & Action Points"])
 
 with tab1:
     st.subheader("Current Year Utility Data Analysis")
@@ -377,10 +377,169 @@ with tab4:
         
     """)
 
+with tab5:
+    st.subheader("**Current Year Margins Analysis**")
+    with st.expander("**Operating Margins Analyzed**", expanded=True):
+        st.markdown(
+            """
+        * Out of the seven months surveyed, four months were at red flag percentage levels (January, March, April and June). 
+        * Out of those four months, one month recorded a net loss (-19.81), and it was April 2026.
+        * Out of the remaining three months, one month recorded an operating profit margin of 18.78 (February 2026). 
+        * Two months out of the remaining three recorded exceptional operating profit margins (38.75- May 2026, 24.76- July 2026). 
+        * The trend line is as follows: red flag—good month—red flag—red flag—exceptional—red flag—exceptional. 
+        """)
 
+    with st.expander("**Net Profit Margin Analyzed**", expanded=True):
+        st.markdown(
+            """
+        * Out of the seven months surveyed, four months were at red flag percentage levels (January, March, April and June). 
+        * Out of those four months, one month recorded a net loss (-19.81) and this was April 2026.
+        * Out of the remaining three months, one month recorded a good net profit (18.78) and this was February 2026.
+        * Two months out of the remaining three recorded exceptional net profit margins (May 2026-38.75 and June 2026-24.76) respectively.
+        * The trend line is as follows: red flag—good month—red flag—red flag—exceptional—red flag—exceptional. 
+        """)
 
+    with st.expander("**COGS Spent Over Revenue Analyzed**",expanded=True):
+        st.markdown(
+            """
+            * Six out of the seven surveyed months pointed to red flag percentage levels, except for May 2026 (33.06% of COGS/Revenue).
+            """
+        )
+    with st.expander("**OPEX Spent Over Revenue Analyzed**", expanded=True):
+        st.markdown(
+            """
+            * Two out of the seven months were at red flag percentage levels (April 2026-63.83% and June 2026-49.65%) respectively. 
+            """
+        )
+with tab6:
+    st.subheader("**Year On Year Margins Analysis**")
+    with st.expander("**Operating Margins Analyzed**", expanded=True):
+        st.markdown(
+            """
+            * Out of the seven months analyzed, five months were at red flag levels, with two months out of the five months reporting negative operating losses (-5.22 for February and -9.76 for June) respectively.
+            * Only two months reached average to fair margin percentage levels (14.41- April and 11.94-May) respectively.
+            
+            """        )
+    with st.expander("**Net Margins Analyzed**", expanded=True):
+        st.markdown(
+            """
+            * Out of the seven months surveyed, four months reached red flag percentage levels, with two out of those four months reporting net profit losses (-5.22 for February and -9.76 for June) respectively. 
+            * One out of the remaining three months reached fair to average percentage levels (7.57 for February 2025) respectively. 
+            * Only two months reached good levels of net margin (14.41 for April and 11.94 for May). 
+
+            """
+        )
+    with st.expander("**COGS/Revenue Analyzed**", expanded=True):
+        st.markdown("""
+        
+        * All seven months surveyed during this period reported red flag percentage levels. 
+        """)
+
+    with st.expander("**OPEX/Revenue Analyzed**", expanded= True):
+        st.markdown(
+            """
+            * Out of the seven months surveyed during this period, three months reached red flag percentage levels. 
+            * Three out of the remaining four months reported ideal percentage levels (38.62-March, 42.82- April, 39.63-May). 
+            * The final month surveyed reported an ideal but slightly elevated percentage (46.61 for July 2025). 
+            """
+        )
+with tab7:
+    st.subheader("**Margins Analysis Insight & Action Points**")
+
+    with st.expander("**Takeaway #1: In 2026, four out of the seven surveyed months (Jan-July) had red flag operating margin percentage numbers**", expanded= True):
+        st.markdown("""
+        **Insight: Business is suffering from severe operational volatility and high fixed cost vulnerability** 
+        
+        * Business is volume dependent: when sales are high, profits are excellent. When sales dip even slightly, profitability suffers. 
+        *	Fixed operating expenses are too high relative to low volume months. 
+            -	During high months: revenue is high enough to absorb fixed overhead
+            -	During low months: revenue falls but overhead is flat—overhead consumes all gross profit, driving margins below 10%. 
+        * Because 57% of the business sits in the red flag zone, the business relies entirely on unicorn or peak season months to survive the off-peak months. The profits during the good months are likely to be burned just to keep the doors open during the bad months. 
+        
+        **Action Plan:**
+        * Build a subscription/B2B revenue floor: target corporate packed lunches, daily hospital meal drops or weekly family meal subscriptions. Guaranteed revenue during off-peak months ensures that revenue never drops below your fixed overhead break-even point.
+        * Audit off peak food waste: implement strict daily batch prep limits on quiet weekdays to keep COGs tight
+        * Convert fixed overhead to variable: if rent or equipment leases are crushing off-peak margins, explore shared commissary spaces, renegotiate lease terms or sublease kitchen space during idle evening hours to offset fixed occupancy costs. 
+        """)
+
+    with st.expander("**Takeaway #2: In 2026, four out of the seven surveyed months (Jan- July) had red flag net profit margin percentage numbers**"):
+        pass
+    with st.expander("**Takeaway #3: In 2026, six out of the seven surveyed months had red flag percentage numbers for COGS Spent Over Revenue**"):
+        pass
+    with st.expander("**Takeaway #4: In 2026, two out of the seven surveyed months showed red flag percentage numbers for OPEX Spent Over Revenue**"):
+        pass
+    with st.expander("**Takeaway #5: In 2025, five out of the seven months surveyed had red flag operating margin percentage numbers, with two out of the five months reporting negative operating losses (-5.22 for February and -9.76 for June) respectively.**", expanded=True):
+        st.markdown("""
+        **Insight: Systemic operational failure: core business model is burning through cash and every sale is yielding almost no operational return.** 
+    **Causes**
+    * Mispriced menu-selling meals at prices that don’t cover the combined cost of ingredients, labor and packaging
+    * High delivery platform commissions consume the remaining operating margin
+    * Occupancy costs too high relative to sales volume
+    
+    **Risks**
+    * Cash reserve exhaustion: operating margins leave zero room to cover interest payments, taxes, equipment payments or loans. Cash is actively draining
+    * Vulnerability to external shocks: sudden ingredient price increases, vehicle breakdown or cancellation of major order can create cash crunch
+    * Growth trap: attempting to spend more on marketing will accelerate cash burn if unit economics remain broken
+    
+    **Solutions**
+    * Isolate margins by sales channel: is catering profitable while delivery loses money, or are both channels failing?
+    * Audit prime costs: target COGS at 30-35% and Kitchen Labor: 22-27%; action standardize portion sizes, renegotiate prices with raw ingredient suppliers or adjust menu offerings to feature higher margin dishes
+    * Reevaluate menu pricing: apply 3-3.5 multiplier on raw food and packaging costs for all delivery and catering items, raise menu prices across low margin items 
+    * Audit logistics and platform fees: if delivery costs are eating your margins, raise menu prices specifically on those delivery apps or incentivize direct pre-orders
+    * Freeze non-essential operating expenses: target a 15% margin 
+
+        """)
+
+    with st.expander("**Takeaway#6: In 2025, out of the seven months surveyed, four months reached red flag net margin percentage levels, with two out of those four months reporting net losses (February and June) respectively.**"):
+        pass
+    with st.expander("**Takeaway#7: In 2025, all seven months reported red flag percentage levels about COGS/Revenue.**", expanded=True):
+        st.markdown("""
+        **Insight: The business has a fundamental product pricing and kitchen cost problem.**
+        * Core recipe, procurement, packaging or pricing structure is systematically broken, which drags down business performance regardless of how well you manage expenses or overhead. 
+        **Causes**
+        
+        * Every single dish, meal box or catering tray leaving the kitchen costs too much to make relative what is charged for it 
+        * Sales volume will not solve this—it multiplies losses and burns out staff faster 
+        * Inflated COGs cancels out healthy management of OPEX
+        * One ends up having zero margin for error with OPEX spikes
+        
+        **Primary Causes of High COGs**
+        * Underpriced menu items: no corresponding menu price increase when market prices for ingredients increase
+        * Packaging over specification: using high cost delivery containers, insulated liners or sauce cups
+        * Recipe Drift & Lack of portion control: kitchen staff are not using scales, measuring spoons or standard recipe cards
+        * Poor purchasing/supplier terms: buying ingredients in retail quantities at high unit prices rather than negotiating bulk wholesale rates with distributors 
+
+        **Recovery Action Plan**
+        
+        **Conduct recipe cost audit: calculate exact cost for top 10 bestselling items**
+        * Identify which menu items have COGs higher than 35%
+        * Either increase their price, reduce portion of expensive ingredients, or replace  with higher margin alternatives 
+        
+        **Implement strict portion control**
+        * Put digital food scales and standardized portion scoops at every prep station
+        * Train staff to measure exact protein weights per order
+        
+        **Separate packaging costs from food costs**
+        * Audit packaging spending
+        * If it exceeds 6% of meal price, switch to something more eco friendly or cost effective or charge a fee for delivery packaging. 
+        
+        **Renegotiate or source bulk vendors**
+        * Shift purchasing to wholesale food distributors to secure bulk discounts on core staples (rice, oil, flour, primary proteins). 
+
+        **The Case for Fixing/ Why this Business is Worth Saving**
+        1. Management discipline already exists
+        * Rent, utilities, general overhead can be managed
+        * Issue lies in product-level pricing and recipe flaw
+        2.	Problem is localized to the kitchen/menu
+        * COGs is main issue, which can be fixed at the kitchen counter/menu board
+        * Solution lies in resizing product, renegotiating supply and adjusting price 
+        3.	The seven-month trajectory shows proof of concept 
+        * During Months 4 and 5, the business achieved good net profit margins. This proves that when demand or order volume aligns, the business model can generate healthy profits. The recent downturn in Months 6 and 7 means recent cost inflation, labor scheduling, or volume drops caught up with the business—not that the core business idea is dead.
+        
+        """)
 
 st.sidebar.button("Logout", on_click=logout)
+
 
 
 

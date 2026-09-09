@@ -120,10 +120,13 @@ with tab1:
     fig.update_layout(template="plotly_white")
     st.plotly_chart(fig)
 
+    st.subheader("Gross Vs Net Profit Comparison Table")
     df = pd.read_csv ("GrossvsNetComparison2526.csv")
     st.dataframe(df)
 
-
+    st.subheader("Operating Profit vs Net Profit vs Expense Breakdown Comparison Table")
+    df = pd.read_csv ("2526MarginsChart.csv")
+    st.dataframe(df)
 
 with tab2:
     st.subheader("Utility Dashboard")
