@@ -264,16 +264,32 @@ with tab3:
         * May 2026 is listed as the month with the highest operating margin, with July at a close second.
         
         * April 2026 is listed as the month with the lowest operating income and margin, notably displaying negative results for both. 
+        
+        Updated Analysis:
+        *	The months of August-October 2026 all show relatively high operating income and operating margins. 
+
 
     """)
 
     with st.expander("**Table #2: Cost Spend Tables**", expanded=True):
         st.markdown(
         """
-        * Table 2 looks at the two main branches of expenses which are used to calculate profit, cost of goods and operating expenses.
-        The table displays the total amounts spent for the listed months, and the percentage each amount is of the total revenue earned during that period.	 
-        The COG percentage for all months are at alarming levels, while the OPEX percentages display no anomalies.
-	    The next few charts might be of help in order to diagnose the cost surge seen in the COG category.             
+     * **Table 2 looks at the two main branches of expenses which are used to calculate profit, cost of goods and operating expenses.**
+        
+     * The table displays the total amounts spent for the listed months, and the percentage each amount is of the total revenue earned during that period.	 
+        
+     * The COG percentage for all months are at alarming levels, while the OPEX percentages display no anomalies.
+        
+	 * The next few charts might be of help in order to diagnose the cost surge seen in the COG category.  
+	    
+     * The months of August-October 2026 showed a gradual decrease in the cost of goods/revenue ratio percentage, this could be due to an increased revenue during these months in contrast to previous months. 
+        
+     * These percentages still fall under the red flag range but are lower compared to previous months. 
+        
+     * On the other hand, the following months showed relatively similar numbers with regard to the OPEX Percentage: 38.19 for August, 28.85 for September and 31.93 for October.  
+          
+     * These numbers fall within the ideal percentage target range of 35-45% and lower. 
+        
     """)
 
     with st.expander("**Table #3: Cost of Goods Table**", expanded=True):
@@ -286,6 +302,12 @@ with tab3:
         * Petty cash marketing and salaries compose the highest percentage of the expense, exceeding the ideal 40-50% of COGs. 
         
         * Possible issues include overstaffing, excessive overtime and inefficient procedures. 
+        
+        * The months of August-October 2026 follow the same trend about which COG makes up most expenses: salaries and petty cash marketing. 
+    
+        * Another interesting COG to note is **Cooking Gas**, which takes on the third highest COG expense as seen in the following months: 27,298.00 in April, 23,698.00 in May, 24,790.00 in July and 22,528.00 in October. This is an expense that would normally max out at 17,000.00-20,000.00 during previous years. 
+
+        
 
             
     """)
@@ -298,6 +320,13 @@ with tab3:
         * Electricity comprises the highest expense for all months, followed by the water bill. 
         
         * There were no anomalies spotted in the numbers listed. 
+        
+        * Additional Notes: The months of August-October 2026 showed a relatively flat figure about the electricity bill amount.
+        
+        * October notes a gradual increase in the water bill, which telecom expenses for the following months are the same as usual. 
+        
+        * Important note for the vehicle gas cost: October’s figures do not include the second half of the month. 
+
 
     """)
 
@@ -315,6 +344,31 @@ with tab3:
         * Examining the numbers further also gave more insight into just how bad the April 2026 cost increases affected the health of the business. 
         
         * Hurdles encountered during preparation of the report included analyzing where certain expenses would be classified given the context of the business’ work. These are still concerns after the report has been completed, as they affect the computations greatly. 
+        
+        * An updated examination of the COGS/Revenue and OPEX/Revenue ratios reveal the continual trend  that the COGs are at critical levels while the overhead is stable. 
+          -	However, a stable overhead can only do so much if the COGs are an issue—we cannot be continually bleeding cash on every transaction. 
+          - Possible worse case scenarios are that volume does not fix the issue here and makes it worse. Even if you have a lot of sales, you lose money faster for zero net return. 
+          -	There is also zero margin for error as minor OPEX spikes can plunge the business into a net loss. 
+          
+          **Possible root causes for this issue include:**
+          -	Underpriced menus/products
+          -	Portion creep/waste
+          -	Insufficient procurement
+          -	Unoptimized packaging cost: packaging that consumes too high a percentage of total item value. 
+          
+          **Possible next steps:**
+          -	Recalculate unit costs: Break down every menu item to see each component down to the cent
+          -	Apply a strict multiplier
+          -	Enforce strict kitchen controls 
+            •	Current action implemented:
+            -	Recost of front-facing delivery menu to include itemized packaging cost 
+            -	Implemented tiered pricing for December catering menus, but these do not fall within the need to follow the standard margin multipliers of 3-3.5—price shock is an issue here 
+            •	Recommendation
+            -	Implement 3-3.5x multiplier in pricing holiday menu items? 
+
+        
+        
+        
 
     """)
 
@@ -376,6 +430,7 @@ with tab4:
         • Some action points which may aid in solving this issue include protecting net margin while fixing cost of goods (aiming for an ideal 30-35% ingredient cost, the business currently is at a 40% raw material cost), and normalizing labor for true valuation (including the owner’s salary under operating expenses in order to gain a more accurate net value).
         
     """)
+
 
 with tab5:
     st.subheader("**Current Year Margins Analysis**")

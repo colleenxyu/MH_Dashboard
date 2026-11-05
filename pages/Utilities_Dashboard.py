@@ -50,7 +50,7 @@ effectiverates_df = effectiverates_df[effectiverates_df["Month"] == selected_mon
 watervariance_df = watervariance_df[watervariance_df["Month"] == selected_month].iloc[0]
 elecvariance_df = elecvariance_df [elecvariance_df ["Month"] == selected_month].iloc[0]
 utilitycostpercent_df = utilitycostpercent_df[utilitycostpercent_df ["Month"]  == selected_month].iloc[0]
-costperorders_df = costperorders_df [costperorders_df ["Month"] == selected_month].iloc[0]
+costperorders_df = costperorders_df[costperorders_df ["Month"] == selected_month].iloc[0]
 
 st.subheader("General Information")
 with st.container(border=True):
